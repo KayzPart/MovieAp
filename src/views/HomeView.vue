@@ -7,7 +7,7 @@
           <ToggleButton id="label_example" labelEnableText="Séries" labelDisableText="Films" />
         </div>
       </div>
-      <div class="allgenres">
+      <div class="genres">
         <AllGenres v-for="item in dataGenre" :key="item.id" :id="item.id" :name="item.name" :type="type"></AllGenres>
       </div>
     </div>
@@ -99,7 +99,7 @@ export default {
   justify-content: center;
   width: 100%;
 }
-.allgenres{
+.genres{
   display: flex;
   justify-content: space-between;
 }

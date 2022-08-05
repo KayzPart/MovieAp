@@ -11,14 +11,6 @@ export default class ApiService {
     return fetch(`https://api.themoviedb.org/3/discover/movie?language=fr-FR&page=${page}`, this.myInit)
   }
 
-  getSearch (search) {
-    return fetch(`https://api.themoviedb.org/3/search/movie?language=fr-FR&query=${search}&include_adult=false`, this.myInit)
-  }
-
-  getSearchSeries (search) {
-    return fetch(`https://api.themoviedb.org/3/search/tv?language=fr-FR&query=${search}&include_adult=false`, this.myInit)
-  }
-
   getRead (id) {
     return fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR`, this.myInit)
   }
@@ -31,8 +23,20 @@ export default class ApiService {
     return fetch(`https://api.themoviedb.org/3/tv/${id}?language=fr-FR`, this.myInit)
   }
 
+  getSearch (search) {
+    return fetch(`https://api.themoviedb.org/3/search/movie?language=fr-FR&query=${search}&include_adult=false`, this.myInit)
+  }
+
+  getSearchSeries (search) {
+    return fetch(`https://api.themoviedb.org/3/search/tv?language=fr-FR&query=${search}&include_adult=false`, this.myInit)
+  }
+
   getGenres () {
     return fetch('https://api.themoviedb.org/3/genre/movie/list?language=fr-FR', this.myInit)
+  }
+
+  getGenresOfSeries () {
+    return fetch('https://api.themoviedb.org/3/genre/tv/list?language=fr-FR', this.myInit)
   }
 
   getGenresMovies (page, genre) {
