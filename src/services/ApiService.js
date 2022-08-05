@@ -12,15 +12,15 @@ export default class ApiService {
   }
 
   getSearch (search) {
-    return fetch(`https://api.themoviedb.org/3/search/movie?api_key=39876bbf2df6ab31ac6c8d58f1188452&language=fr-FR&query=${search}&include_adult=false`, this.myInit)
+    return fetch(`https://api.themoviedb.org/3/search/movie?language=fr-FR&query=${search}&include_adult=false`, this.myInit)
   }
 
   getRead (id) {
-    return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=39876bbf2df6ab31ac6c8d58f1188452&language=fr-FR`, this.myInit)
+    return fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR`, this.myInit)
   }
 
   getSerie (page) {
-    return fetch(`https://api.themoviedb.org/3/tv/popular?api_key=39876bbf2df6ab31ac6c8d58f1188452&language=fr-FR=${page}`, this.myInit)
+    return fetch(`https://api.themoviedb.org/3/discover/tv/?language=fr-FR=${page}`, this.myInit)
   }
 
   getGenres () {

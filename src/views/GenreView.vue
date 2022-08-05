@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       data: [],
-      page: 0,
+      page: 1,
       dataGenre: null,
       genreid: this.$route.params.id
     }

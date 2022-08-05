@@ -4,6 +4,7 @@
   <h1 class="title">THE MOVIEAP</h1>
   <nav>
     <router-link to="/">HOME</router-link>
+    <router-link to="/serieView/">SÉRIE</router-link>
     <router-link to="/search/">SEARCH</router-link>
     <!--<div class="box">
       <div :class="{'active': active}" class="toggle_container">

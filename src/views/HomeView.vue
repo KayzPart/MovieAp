@@ -14,7 +14,6 @@
     <!-- Quand on boucle on doit avoir une ouvrante et une fermante mais pas quand on envoie une seule valeur -->
     <!-- props = : , v-for = boucle -->
     <AllMovies v-for="item in data" :key="item.id" :id="item.id" :title="item.title" :name="item.name" :overview="item.overview" :poster_path="item.poster_path" :release_date="item.release_date" :vote_average="item.vote_average" :backdrop_path="item.backdrop_path"></AllMovies>
-    <!-- <AllSeries v-for="item in data" :key="item.id" :name="item.name" :poster_path="item.poster_path" :vote_average="item.vote_average" :overview="item.overview" :first_air_date="item.first_air_date"></AllSeries> -->
   </div>
 </template>
 <script>
