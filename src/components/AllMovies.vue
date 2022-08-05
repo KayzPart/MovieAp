@@ -12,11 +12,6 @@
       <p>{{ vote_average }}</p>
     </div>
   </router-link>
-  <!--<router-link :to="{ name: 'serie', params: {id: id} }" class="link_serie">
-    <div class="serie_poster">
-      <img :src="'https://www.themoviedb.org/t/p/w220_and_h330_bestv2/' + poster_path" :alt="name">
-    </div>
-  </router-link>-->
 </template>
 
 <script>

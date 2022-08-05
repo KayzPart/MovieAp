@@ -1,5 +1,6 @@
 <template>
   <div id="homepage">
+    <SearchMovies />
     <div class="box-section">
       <div class="box">
         <div :class="{'active': active}" class="toggle_container">
@@ -19,6 +20,7 @@
 <script>
 // @ is an alias to /src
 import AllMovies from '@/components/AllMovies.vue'
+import SearchMovies from '@/components/SearchMovies.vue'
 import ToggleButton from '@/components/ToggleButton.vue'
 import AllGenres from '@/components/AllGenres.vue'
 import ApiService from '@/services/ApiService.js'
@@ -28,7 +30,10 @@ export default {
   name: 'HomeView',
   el: '#homepage',
   components: {
-    AllMovies, AllGenres, ToggleButton
+    AllMovies,
+    SearchMovies,
+    AllGenres,
+    ToggleButton
   },
   // pour remplir une vue nous avons besoin de data
   data () {
