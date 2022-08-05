@@ -34,3 +34,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+</style>

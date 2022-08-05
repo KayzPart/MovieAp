@@ -1,22 +1,27 @@
 <template>
-<!--<router-link :to="{ name: 'readSerie', params: {id: id} }" class="link_movie">
-<div class="movie_poster">
-  <img :src="'https://www.themoviedb.org/t/p/w220_and_h330_bestv2/' + poster_path" alt="">
-</div>
-<div class="movie_title">
-  <h1>{{ name }}</h1>
-</div>
-
-</router-link>-->
-  <div class="serie_poster">
-    <img :src="'https://www.themoviedb.org/t/p/w220_and_h330_bestv2/' + poster_path" alt="">
-  </div>
-  <div class="serie_title">
-    <h1>{{ name }}</h1>
-    <p>{{ first_air_date }}</p>
-  </div>
-  <div class="percent">
-    <p>{{ vote_average }}</p>
+  <div class="readSerie" :style="{ backgroundImage: `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${data.backdrop_path})`, backgroundPosition: 'right -30px top', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }">
+    <div class="color_poster">
+      <div class="poster">
+        <img :src="'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + data.poster_path" alt="">
+      </div>
+      <section id="block">
+        <div class="descript">
+          <h2>{{ data.name }}</h2>
+          <div class="info">
+            <p>{{currentDate(data.release_date)}}</p>
+            <ul v-for="item in data.genres" :key="item.id">
+              <li>{{ item.name }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="synopsis">
+          <p>
+            <span>Synopsis</span>
+            {{ data.overview }}
+          </p>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -34,79 +39,64 @@ export default {
     }
   },
   created () {
-    this.SerieCard(this.id)
+    this.ReadSerie(this.id)
   },
   methods: {
-    async SerieCard (id) {
-      const res = await apiService.getSerie(id)
+    async ReadSerie (id) {
+      const res = await apiService.getReadSerie(id)
       const series = await res.json()
       this.data = series
     },
-    formatDate (value) {
-      const date = new Date(value)
-      return date.toLocaleDateString('fr')
+    currentDate () {
+      const current = new Date()
+      const date = current.getFullYear()
+      return date
     }
   }
 }
 </script>
 <style scoped>
-.link_serie {
-  position: relative;
-  text-decoration: none;
-  width: 200px;
-  height: 450px;
-  border: solid 1px #e3e3e3;
-  border-radius: 10px;
-  margin: 20px;
+.color_poster {
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(2, 0, 36, 0.6783088235294117) 47%, rgba(92, 92, 92, 0.7259278711484594) 100%);
+  display: flex;
 }
 
-.serie_poster {
-  flex-wrap: wrap;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70%;
+h2 {
+  filter: invert(1);
+  margin: 0;
+  padding: 20px;
 }
 
-.serie_poster>img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+.info {
+  display: flex;
+  color: white;
+}
+ul li {
+  list-style:  none;
 }
 
-.serie_title {
-  position: absolute;
-  top: 70%;
+.info p:nth-child(1) {
+  margin: 0 10px;
+}
+
+.synopsis p {
+  display: flex;
+  flex-direction: column;
   text-align: left;
-}
-
-.serie_title h1 {
+  margin-left: 10px;
+  width: 90%;
+  color: white;
   font-size: 16px;
-  margin: 10px;
-  color: black;
 }
 
-.serie_title p {
-  margin: 0 0 0 10px;
-  color: rgba(92, 84, 84, 0.719);
-  font-size: 14px;
+.synopsis span {
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
-.percent {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: black;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  margin: 10px;
-}
-
-.percent>p {
-  color: whitesmoke;
-  font-weight: bold;
+@media screen and (max-width: 700px) {
+  .color_poster {
+    flex-direction: column;
+  }
 }
 </style>

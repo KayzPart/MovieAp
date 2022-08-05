@@ -4,6 +4,7 @@
     <div class="allmovies">
       <AllMovies v-for="item in data" :key="item.id" :id="item.id" :title="item.title" :poster="item.poster_path" :name="item.name">
       </AllMovies>
+      coucou
     </div>
   </div>
 </template>

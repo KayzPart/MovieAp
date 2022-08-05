@@ -9,7 +9,6 @@
         <div class="descrip">
           <h2>{{ data.title }}</h2>
           <div class="info">
-            <!--<p>{{ formatDate(data.release_date) }}</p>-->
             <p>{{currentDate(data.release_date)}}</p>
             <ul v-for="item in data.genres" :key="item.id">
               <li>{{ item.name }}</li>
@@ -58,10 +57,6 @@ export default {
       const date = current.getFullYear()
       return date
     }
-    // formatDate (value) {
-    //   const date = new Date(value)
-    //   return date.toLocaleDateString('fr')
-    // }
   }
 }
 </script>

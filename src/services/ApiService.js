@@ -23,6 +23,10 @@ export default class ApiService {
     return fetch(`https://api.themoviedb.org/3/discover/tv/?language=fr-FR=${page}`, this.myInit)
   }
 
+  getReadSerie (id) {
+    return fetch(`https://api.themoviedb.org/3/tv/${id}?language=fr-FR`, this.myInit)
+  }
+
   getGenres () {
     return fetch('https://api.themoviedb.org/3/genre/movie/list?language=fr-FR', this.myInit)
   }
